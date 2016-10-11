@@ -1,18 +1,16 @@
 import urllib
 
-def readText():
-    quotes = open("quotes.txt")
+def readText(textFile):
+    quotes = open(textFile)
     contentsOfFile = quotes.read()
-    #print (contentsOfFile)
     quotes.close()
-    checkProfanity(contentsOfFile)
+    makePirateSpeech(contentsOfFile)
 
-def checkProfanity (textToCheck):
+def makePirateSpeech (textToCheck):
 	connection = urllib.urlopen ("http://www.isithackday.com/arrpi.php?text=" + textToCheck)
 	output = connection.read()
 	print (output)
 	connection.close()
-	
 
-readText()
 
+readText("quotes.txt")
